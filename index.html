@@ -1,0 +1,76 @@
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Гео позиция</title>
+        
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+        <script type="text/javascript" src="js/objects/LocalStorage.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Геометка мастер</h1>
+        </header>
+        
+        <div class="mainblock">
+            <nav class="navigation">
+                <div class="menu">
+                    <div class="showRadius">
+                        <p>Отображение геометок, находящихся в заданном радиусе относительно текущего местоположения</p>
+                        <label>Радиус:</label>
+                        <input type="text" placeholder="В метрах" id="txtRadius">
+                        <input type="button" value="Показать" id="btnShowRadius" onclick="showAllMarksInRadius()">
+                        <input type="button" value="Убрать" id="btnDelRadius" onclick="deleteRadius()">
+                    </div>
+                    <div class="buttons">
+                        <input type="button" value="Добавить новую метку" id="showForm" href="#addForm">
+                        <input type="button" value="Показать текущее местоположение" id="btnShowCurPos" onclick="getMyLocation()">
+                        <input type="button" value="Удалить все метки" id="btnDeleteAllMarks" onclick="deleteAllMarks()">
+                    </div>
+                    <div class="Author">
+                        <h1>Васюков Д.В.</h1>
+                        <h2>ПС-41</h2>
+                    </div>
+                    <div class="msgBox">
+                        <p id="message"></p>
+                    </div>
+                </div>
+            </nav>
+        
+            <section class="sizeMap">
+                <div id="map" class="map"></div>
+            </section>
+        </div>
+        
+        <div class="menuVertical">
+            <h2>Геометки:</h2>
+            <ul id="content">
+
+            </ul>
+        </div>
+        
+        <div class="mfp-hide"> 
+            <div id="addForm">
+                <h2>Добавление новой метки</h2><br>
+                <label>Имя метки:</label>
+                <input type="text" placeholder="Введите имя" id="txtNameMark"><br><br>
+                <label>Широта:</label>
+                <input type="text" placeholder="Введите широту" id="txtLatMark"><br><br>
+                <label>Долгота:</label>
+                <input type="text" placeholder="Введите долготу" id="txtLongMark"><br><br>
+                <input type="button" value="Добавить" id="addNewMark" onclick="getMarkFromForm()"><br><br>
+            
+                <p>С помощью файла:</p><br>
+                <div class="dropzone" id="dropzone">Drop files here to upload</div>
+            </div>
+        </div>
+        
+        <script type="text/javascript" src="js/objects/FileWorker.js"></script>
+        <script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
+        <script type="text/javascript" src="js/objects/MapWorker.js"></script>
+        <script type="text/javascript" src="js/objects/List.js"></script>
+    </body>
+</html>
